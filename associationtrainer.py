@@ -4,4 +4,7 @@ import re
 import sqlite3 as sql
 
 import logging
-impo
+import misc
+
+E = np.exp(1)
+RANKIN
