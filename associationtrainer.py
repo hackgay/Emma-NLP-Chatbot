@@ -9,4 +9,4 @@ import misc
 E = np.exp(1)
 RANKING_CONSTANT = 3.19722457734
 def calculate_new_weight(currentWeight):
-    """Take an assoc
+    """Take an association's weight and increase it""
