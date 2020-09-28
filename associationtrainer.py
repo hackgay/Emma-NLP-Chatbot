@@ -10,4 +10,4 @@ E = np.exp(1)
 RANKING_CONSTANT = 3.19722457734
 def calculate_new_weight(currentWeight):
     """Take an association's weight and increase it"""
-    # TODO: This func
+    # TODO: This function should be able to de
