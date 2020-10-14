@@ -12,4 +12,5 @@ def calculate_new_weight(currentWeight):
     """Take an association's weight and increase it"""
     # TODO: This function should be able to decrease weights too
     # Don't let weights be exactly 1 because this breaks stuff
-    if c
+    if currentWeight == 1:
+        curr
