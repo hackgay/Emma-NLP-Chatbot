@@ -13,4 +13,6 @@ def calculate_new_weight(currentWeight):
     # TODO: This function should be able to decrease weights too
     # Don't let weights be exactly 1 because this breaks stuff
     if currentWeight == 1:
-        curr
+        currentWeight = 0.999999999994
+    
+    # 
