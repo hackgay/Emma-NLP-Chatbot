@@ -16,4 +16,5 @@ def calculate_new_weight(currentWeight):
         currentWeight = 0.999999999994
     
     # Transform the weight back into the number of occurances of the word
-    occurances = np.log(currentWeight/(1-currentWeight))+R
+    occurances = np.log(currentWeight/(1-currentWeight))+RANKING_CONSTANT
+    occurances +
