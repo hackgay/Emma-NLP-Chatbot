@@ -21,4 +21,6 @@ def calculate_new_weight(currentWeight):
 
     # Re-calculate weight
     newWeight = 1/(1+E**(occurances-RANKING_CONSTANT))
-    re
+    return newWeight
+
+connectio
