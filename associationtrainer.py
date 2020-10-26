@@ -20,4 +20,4 @@ def calculate_new_weight(currentWeight):
     occurances += 1
 
     # Re-calculate weight
-  
+    newWeight = 1/(1+E**(occuranc
