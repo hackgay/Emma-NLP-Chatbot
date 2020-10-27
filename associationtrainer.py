@@ -24,4 +24,5 @@ def calculate_new_weight(currentWeight):
     return newWeight
 
 connection = sql.connect('emma.db')
-conne
+connection.text_factory = str
+cursor 
