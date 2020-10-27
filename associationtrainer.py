@@ -23,4 +23,5 @@ def calculate_new_weight(currentWeight):
     newWeight = 1/(1+E**(occurances-RANKING_CONSTANT))
     return newWeight
 
-connectio
+connection = sql.connect('emma.db')
+conne
