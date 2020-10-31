@@ -26,4 +26,5 @@ def calculate_new_weight(currentWeight):
 connection = sql.connect('emma.db')
 connection.text_factory = str
 cursor = connection.cursor()
-def train_association(word, associationType, target
+def train_association(word, associationType, target):
+    """Adds an association to the
