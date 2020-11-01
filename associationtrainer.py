@@ -29,4 +29,5 @@ cursor = connection.cursor()
 def train_association(word, associationType, target):
     """Adds an association to the database"""
     # We want to ignore associations with self, so:
-    if word
+    if word != target:
+        word 
