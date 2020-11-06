@@ -30,4 +30,5 @@ def train_association(word, associationType, target):
     """Adds an association to the database"""
     # We want to ignore associations with self, so:
     if word != target:
-        word 
+        word = re.escape(word)
+      
