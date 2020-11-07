@@ -31,4 +31,6 @@ def train_association(word, associationType, target):
     # We want to ignore associations with self, so:
     if word != target:
         word = re.escape(word)
-      
+        target = re.escape(target)
+
+   
