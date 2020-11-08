@@ -33,4 +33,4 @@ def train_association(word, associationType, target):
         word = re.escape(word)
         target = re.escape(target)
 
-   
+        # Check to see if the associatio
