@@ -34,4 +34,5 @@ def train_association(word, associationType, target):
         target = re.escape(target)
 
         # Check to see if the association already exists
-        
+        with connection:
+          
