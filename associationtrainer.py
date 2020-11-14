@@ -35,4 +35,4 @@ def train_association(word, associationType, target):
 
         # Check to see if the association already exists
         with connection:
-            cursor.execute('SELECT * FROM associationmodel WHERE word = ? AND association_type = ? AND target = ?;', (word.encode('utf-8', 'ig
+            cursor.execute('SELECT * FROM associationmodel WHERE word = ? AND association_type = ? AND target = ?;', (word.encode('utf-8', 'ignore'), associationType, ta
