@@ -38,4 +38,5 @@ def train_association(word, associationType, target):
             cursor.execute('SELECT * FROM associationmodel WHERE word = ? AND association_type = ? AND target = ?;', (word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore')))
             SQLReturn = cursor.fetchall()
             if SQLReturn:
-                # Association already exists, so we st
+                # Association already exists, so we strengthen it
+                
