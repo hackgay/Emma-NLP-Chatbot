@@ -40,4 +40,5 @@ def train_association(word, associationType, target):
             if SQLReturn:
                 # Association already exists, so we strengthen it
                 weight = calculate_new_weight(SQLReturn[0][3])
-                wit
+                with connection:
+                   
