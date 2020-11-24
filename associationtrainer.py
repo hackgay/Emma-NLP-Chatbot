@@ -41,4 +41,4 @@ def train_association(word, associationType, target):
                 # Association already exists, so we strengthen it
                 weight = calculate_new_weight(SQLReturn[0][3])
                 with connection:
-                    cursor.execute('UPDATE associationmodel SET weight = ? WHERE word = ? AND association_type = ? AND target =
+                    cursor.execute('UPDATE associationmodel SET weight = ? WHERE word = ? AND association_type = ? AND target = ?;', (weight, word.encode('utf-8', 
