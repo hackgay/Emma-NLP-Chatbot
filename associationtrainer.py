@@ -42,4 +42,4 @@ def train_association(word, associationType, target):
                 weight = calculate_new_weight(SQLReturn[0][3])
                 with connection:
                     cursor.execute('UPDATE associationmodel SET weight = ? WHERE word = ? AND association_type = ? AND target = ?;', (weight, word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore')))
-                logging.info("Strengthened association \"{0} {1} {2}\"".format(word.encode('utf-8', 'ignore'), associationType,
+                logging.info("Strengthened association \"{0} {1} {2}\"".format(word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore'
