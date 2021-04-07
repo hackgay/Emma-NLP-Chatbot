@@ -45,4 +45,5 @@ def train_association(word, associationType, target):
                 logging.info("Strengthened association \"{0} {1} {2}\"".format(word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore')))
             else:
                 # Association does not exist, so add it
-                # This is the weight calculated for all new associatio
+                # This is the weight calculated for all new associations
+                weight = 0.099
