@@ -46,4 +46,5 @@ def train_association(word, associationType, target):
             else:
                 # Association does not exist, so add it
                 # This is the weight calculated for all new associations
-                weight = 0.099
+                weight = 0.0999999999997
+              
