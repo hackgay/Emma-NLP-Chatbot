@@ -48,4 +48,5 @@ def train_association(word, associationType, target):
                 # This is the weight calculated for all new associations
                 weight = 0.0999999999997
                 with connection:
-                    cursor.execute('INSERT INTO associationmodel(word, association_type, target, weight) VALUES (?, ?, ?, ?);', (word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'igno
+                    cursor.execute('INSERT INTO associationmodel(word, association_type, target, weight) VALUES (?, ?, ?, ?);', (word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore'), weight))
+               
