@@ -49,4 +49,6 @@ def train_association(word, associationType, target):
                 weight = 0.0999999999997
                 with connection:
                     cursor.execute('INSERT INTO associationmodel(word, association_type, target, weight) VALUES (?, ?, ?, ?);', (word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore'), weight))
-                logging.info("Found new association \"{0} {1} {2}\"".format(word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', '
+                logging.info("Found new association \"{0} {1} {2}\"".format(word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore')))
+
+def find_associations(mess
