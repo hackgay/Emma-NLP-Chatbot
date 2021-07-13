@@ -51,4 +51,5 @@ def train_association(word, associationType, target):
                     cursor.execute('INSERT INTO associationmodel(word, association_type, target, weight) VALUES (?, ?, ?, ?);', (word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore'), weight))
                 logging.info("Found new association \"{0} {1} {2}\"".format(word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore')))
 
-def find_associations(mess
+def find_associations(message):
+    """Use pattern rec
