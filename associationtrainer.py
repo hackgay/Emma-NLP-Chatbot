@@ -52,4 +52,5 @@ def train_association(word, associationType, target):
                 logging.info("Found new association \"{0} {1} {2}\"".format(word.encode('utf-8', 'ignore'), associationType, target.encode('utf-8', 'ignore')))
 
 def find_associations(message):
-    """Use pattern recognition to learn from a Messag
+    """Use pattern recognition to learn from a Message object"""
+    for sen
