@@ -53,4 +53,4 @@ def train_association(word, associationType, target):
 
 def find_associations(message):
     """Use pattern recognition to learn from a Message object"""
-    for sen
+    for sentence in message.sentences
