@@ -55,4 +55,5 @@ def find_associations(message):
     """Use pattern recognition to learn from a Message object"""
     for sentence in message.sentences:
         # We don't want to learn from questions
-        if sentence.sentence[-1]
+        if sentence.sentence[-1] != u'?':
+            for word in senten
