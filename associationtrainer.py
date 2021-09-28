@@ -57,4 +57,5 @@ def find_associations(message):
         # We don't want to learn from questions
         if sentence.sentence[-1] != u'?':
             for word in sentence.words:
-                # Don't associate parts of speech we c
+                # Don't associate parts of speech we can't actually use
+                
