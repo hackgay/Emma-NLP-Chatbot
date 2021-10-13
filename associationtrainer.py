@@ -58,4 +58,4 @@ def find_associations(message):
         if sentence.sentence[-1] != u'?':
             for word in sentence.words:
                 # Don't associate parts of speech we can't actually use
-                
+                if word.partOfSpeech 
