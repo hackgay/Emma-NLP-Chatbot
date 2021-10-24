@@ -59,4 +59,4 @@ def find_associations(message):
             for word in sentence.words:
                 # Don't associate parts of speech we can't actually use
                 if word.partOfSpeech not in misc.trashPOS:
-           
+                    # Check for words be
