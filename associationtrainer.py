@@ -60,4 +60,4 @@ def find_associations(message):
                 # Don't associate parts of speech we can't actually use
                 if word.partOfSpeech not in misc.trashPOS:
                     # Check for words behind the word we're on
-       
+                    if sentence.length - wo
