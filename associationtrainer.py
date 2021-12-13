@@ -61,4 +61,4 @@ def find_associations(message):
                 if word.partOfSpeech not in misc.trashPOS:
                     # Check for words behind the word we're on
                     if sentence.length - word.index > 0:
-                   
+                        # Check for 
