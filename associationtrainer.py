@@ -62,3 +62,4 @@ def find_associations(message):
                     # Check for words behind the word we're on
                     if sentence.length - word.index > 0:
                         # Check for words in front of the word we're on
+                        if sentence.
