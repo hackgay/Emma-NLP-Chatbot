@@ -64,4 +64,4 @@ def find_associations(message):
                         # Check for words in front of the word we're on
                         if sentence.length != word.index + 1:
                             # Look for keywords
-                            if wo
+                            if word.lemma == u'be' or word.le
