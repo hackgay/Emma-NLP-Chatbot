@@ -66,4 +66,4 @@ def find_associations(message):
                             # Look for keywords
                             if word.lemma == u'be' or word.lemma == u'mean':
                                 if "NP" in sentence.words[word.index-1].chunk:
-                                    i
+                                    if "ADJP" in sentence.words[word.index+1]
