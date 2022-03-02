@@ -68,4 +68,4 @@ def find_associations(message):
                                 if "NP" in sentence.words[word.index-1].chunk:
                                     if "ADJP" in sentence.words[word.index+1].chunk or "NP" in sentence.words[word.index+1].chunk:
                                         for nextWord in sentence.words[word.index+1:-1]:
-                            
+                                            # NP + 'be' + ADJP >>
