@@ -69,4 +69,4 @@ def find_associations(message):
                                     if "ADJP" in sentence.words[word.index+1].chunk or "NP" in sentence.words[word.index+1].chunk:
                                         for nextWord in sentence.words[word.index+1:-1]:
                                             # NP + 'be' + ADJP >> NN HAS-PROPERTY JJ (milk is white >> milk HAS-PROPERTY white)
-                        
+                                            i
