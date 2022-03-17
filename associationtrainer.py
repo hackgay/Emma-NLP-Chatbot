@@ -70,4 +70,6 @@ def find_associations(message):
                                         for nextWord in sentence.words[word.index+1:-1]:
                                             # NP + 'be' + ADJP >> NN HAS-PROPERTY JJ (milk is white >> milk HAS-PROPERTY white)
                                             if nextWord.partOfSpeech in misc.adjectiveCodes:
-                                                train_association(sentence.words[word.index-1].lemma, 'HAS-PROPERTY',
+                                                train_association(sentence.words[word.index-1].lemma, 'HAS-PROPERTY', nextWord.lemma)
+
+      
