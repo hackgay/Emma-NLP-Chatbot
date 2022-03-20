@@ -72,4 +72,4 @@ def find_associations(message):
                                             if nextWord.partOfSpeech in misc.adjectiveCodes:
                                                 train_association(sentence.words[word.index-1].lemma, 'HAS-PROPERTY', nextWord.lemma)
 
-      
+                                
