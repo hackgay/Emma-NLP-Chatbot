@@ -73,4 +73,4 @@ def find_associations(message):
                                                 train_association(sentence.words[word.index-1].lemma, 'HAS-PROPERTY', nextWord.lemma)
 
                                             # NP + 'be' + NP >> NN IS-A NN (a dog is an animal >> dog IS-A animal)
-  
+                                   
