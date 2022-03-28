@@ -75,4 +75,4 @@ def find_associations(message):
                                             # NP + 'be' + NP >> NN IS-A NN (a dog is an animal >> dog IS-A animal)
                                             elif nextWord.partOfSpeech in misc.nounCodes:
                                                 train_association(sentence.words[word.index-1].lemma, "IS-A", nextWord.lemma)
-                                                # A noun should b
+                                                # A noun should be the last word in this pattern, so
