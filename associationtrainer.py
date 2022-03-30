@@ -76,4 +76,6 @@ def find_associations(message):
                                             elif nextWord.partOfSpeech in misc.nounCodes:
                                                 train_association(sentence.words[word.index-1].lemma, "IS-A", nextWord.lemma)
                                                 # A noun should be the last word in this pattern, so
-                          
+                                                break
+
+  
