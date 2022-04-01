@@ -78,4 +78,5 @@ def find_associations(message):
                                                 # A noun should be the last word in this pattern, so
                                                 break
 
-                                            elif "NP" in nextWord.chunk or nextWord.lemma 
+                                            elif "NP" in nextWord.chunk or nextWord.lemma == u'and': 
+                      
