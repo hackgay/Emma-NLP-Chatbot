@@ -79,4 +79,4 @@ def find_associations(message):
                                                 break
 
                                             elif "NP" in nextWord.chunk or nextWord.lemma == u'and': 
-                      
+                                                continue
