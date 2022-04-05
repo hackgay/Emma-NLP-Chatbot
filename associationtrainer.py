@@ -80,4 +80,5 @@ def find_associations(message):
 
                                             elif "NP" in nextWord.chunk or nextWord.lemma == u'and': 
                                                 continue
-                                            # Catch us if we go too far because of incorrect se
+                                            # Catch us if we go too far because of incorrect sentence parsing
+          
