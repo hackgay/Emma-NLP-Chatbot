@@ -82,4 +82,4 @@ def find_associations(message):
                                                 continue
                                             # Catch us if we go too far because of incorrect sentence parsing
                                             else:
-                             
+                                                b
