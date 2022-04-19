@@ -83,4 +83,4 @@ def find_associations(message):
                                             # Catch us if we go too far because of incorrect sentence parsing
                                             else:
                                                 break
-                     
+                            if "NP" in wor
