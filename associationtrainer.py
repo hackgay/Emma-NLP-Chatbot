@@ -83,4 +83,5 @@ def find_associations(message):
                                             # Catch us if we go too far because of incorrect sentence parsing
                                             else:
                                                 break
-                            if "NP" in word.chunk and word.partOfSpeec
+                            if "NP" in word.chunk and word.partOfSpeech in misc.nounCodes:
+         
