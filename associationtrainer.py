@@ -84,4 +84,5 @@ def find_associations(message):
                                             else:
                                                 break
                             if "NP" in word.chunk and word.partOfSpeech in misc.nounCodes:
-                                # NP containing JJ + NN >> NN HAS-PROPERTY JJ (the big house >> house 
+                                # NP containing JJ + NN >> NN HAS-PROPERTY JJ (the big house >> house HAS-PROPERTY big)
+             
