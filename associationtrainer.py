@@ -86,4 +86,4 @@ def find_associations(message):
                             if "NP" in word.chunk and word.partOfSpeech in misc.nounCodes:
                                 # NP containing JJ + NN >> NN HAS-PROPERTY JJ (the big house >> house HAS-PROPERTY big)
                                 for adjectiveCandidate in reversed(sentence.words[0:word.index]):
-                             
+                                    if adjectiveCandidate.p
