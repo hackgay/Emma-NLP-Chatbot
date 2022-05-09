@@ -87,4 +87,5 @@ def find_associations(message):
                                 # NP containing JJ + NN >> NN HAS-PROPERTY JJ (the big house >> house HAS-PROPERTY big)
                                 for adjectiveCandidate in reversed(sentence.words[0:word.index]):
                                     if adjectiveCandidate.partOfSpeech in misc.adjectiveCodes:
-                                        train_association(word.lemma, "HAS-PROPERTY", adject
+                                        train_association(word.lemma, "HAS-PROPERTY", adjectiveCandidate.lemma)
+                     
