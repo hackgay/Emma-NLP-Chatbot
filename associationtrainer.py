@@ -89,4 +89,4 @@ def find_associations(message):
                                     if adjectiveCandidate.partOfSpeech in misc.adjectiveCodes:
                                         train_association(word.lemma, "HAS-PROPERTY", adjectiveCandidate.lemma)
                                     else:
-             
+                                        bre
