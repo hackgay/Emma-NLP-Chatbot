@@ -92,4 +92,5 @@ def find_associations(message):
                                         break
 
                                 # NP + VP >> NN HAS-ABILITY-TO VB (Cats can run fast >> cat HAS-ABILITY-TO run)
-                                for verbCandidate in sentence.words[word.inde
+                                for verbCandidate in sentence.words[word.index+1:-1]:
+                      
