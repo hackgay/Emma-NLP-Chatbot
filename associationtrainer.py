@@ -93,4 +93,4 @@ def find_associations(message):
 
                                 # NP + VP >> NN HAS-ABILITY-TO VB (Cats can run fast >> cat HAS-ABILITY-TO run)
                                 for verbCandidate in sentence.words[word.index+1:-1]:
-                      
+                                    if "VP" 
