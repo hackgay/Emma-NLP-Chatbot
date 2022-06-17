@@ -96,4 +96,6 @@ def find_associations(message):
                                     if "VP" in verbCandidate.chunk and verbCandidate.partOfSpeech in misc.verbCodes and verbCandidate.lemma != u'be':
                                         train_association(word.lemma, "HAS-ABILITY-TO", verbCandidate.lemma)
                                     else:
-                 
+                                        break
+
+   
