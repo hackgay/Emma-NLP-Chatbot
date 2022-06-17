@@ -98,4 +98,4 @@ def find_associations(message):
                                     else:
                                         break
 
-   
+                            if w
