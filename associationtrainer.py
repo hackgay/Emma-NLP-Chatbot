@@ -98,4 +98,5 @@ def find_associations(message):
                                     else:
                                         break
 
-                            if word.partOfSpeech in misc.verbC
+                            if word.partOfSpeech in misc.verbCodes:
+                         
