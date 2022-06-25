@@ -100,4 +100,4 @@ def find_associations(message):
 
                             if word.partOfSpeech in misc.verbCodes:
                                 # VP containing RB + VB >> RB HAS-PROPERTY VB (It quickly moves >> quickly HAS-PROPERTY moves)
-    
+                                i
