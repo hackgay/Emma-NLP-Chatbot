@@ -102,3 +102,4 @@ def find_associations(message):
                                 # VP containing RB + VB >> RB HAS-PROPERTY VB (It quickly moves >> quickly HAS-PROPERTY moves)
                                 if word.index != 0 and sentence.words[word.index-1].partOfSpeech in misc.adverbCodes:
                                     for propertyCandidate in reversed(sentence.words[0:word.index]):
+                        
