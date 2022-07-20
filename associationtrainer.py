@@ -104,4 +104,5 @@ def find_associations(message):
                                     for propertyCandidate in reversed(sentence.words[0:word.index]):
                                         if propertyCandidate.partOfSpeech in misc.adverbCodes:
                                             train_association(word.lemma, "HAS-PROPERTY", propertyCandidate.lemma)
-                       
+                            
+                         
