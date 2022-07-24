@@ -105,4 +105,4 @@ def find_associations(message):
                                         if propertyCandidate.partOfSpeech in misc.adverbCodes:
                                             train_association(word.lemma, "HAS-PROPERTY", propertyCandidate.lemma)
                             
-                            # NP + 'has' + NP >> NN HAS NN (
+                            # NP + 'has' + NP >> NN HAS NN (People have two hands >> People HAS 
