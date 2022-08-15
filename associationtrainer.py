@@ -107,4 +107,4 @@ def find_associations(message):
                             
                             # NP + 'has' + NP >> NN HAS NN (People have two hands >> People HAS hands)
                             if word.lemma == u'have' and "NP" in sentence.words[word.index-1].chunk and "NP" in sentence.words[word.index+1].chunk:
-                   
+                                # Attempt to find 
