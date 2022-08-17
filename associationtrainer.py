@@ -109,4 +109,4 @@ def find_associations(message):
                             if word.lemma == u'have' and "NP" in sentence.words[word.index-1].chunk and "NP" in sentence.words[word.index+1].chunk:
                                 # Attempt to find the subject
                                 subject = None
-         
+                                for su
