@@ -110,4 +110,5 @@ def find_associations(message):
                                 # Attempt to find the subject
                                 subject = None
                                 for subjectCandidate in reversed(sentence.words[0:word.index]):
-                                    if subjectCandidate.partOfSpeech in misc.nounCode
+                                    if subjectCandidate.partOfSpeech in misc.nounCodes:
+                           
