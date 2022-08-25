@@ -111,4 +111,4 @@ def find_associations(message):
                                 subject = None
                                 for subjectCandidate in reversed(sentence.words[0:word.index]):
                                     if subjectCandidate.partOfSpeech in misc.nounCodes:
-                           
+                                        subject = subje
