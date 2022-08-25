@@ -112,4 +112,5 @@ def find_associations(message):
                                 for subjectCandidate in reversed(sentence.words[0:word.index]):
                                     if subjectCandidate.partOfSpeech in misc.nounCodes:
                                         subject = subjectCandidate
-                  
+                                        break
+ 
