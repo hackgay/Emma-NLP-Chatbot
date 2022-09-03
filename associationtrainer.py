@@ -113,4 +113,4 @@ def find_associations(message):
                                     if subjectCandidate.partOfSpeech in misc.nounCodes:
                                         subject = subjectCandidate
                                         break
- 
+                       
