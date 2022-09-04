@@ -114,4 +114,5 @@ def find_associations(message):
                                         subject = subjectCandidate
                                         break
                                 # Attempt to find the target
-                              
+                                target = None
+                 
