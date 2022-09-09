@@ -115,4 +115,4 @@ def find_associations(message):
                                         break
                                 # Attempt to find the target
                                 target = None
-                                for targetC
+                                for targetCandidate in sentence.words[wo
