@@ -117,4 +117,5 @@ def find_associations(message):
                                 target = None
                                 for targetCandidate in sentence.words[word.index+1:-1]:
                                     if targetCandidate.partOfSpeech in misc.nounCodes:
-                                        targe
+                                        target = targetCandidate
+               
