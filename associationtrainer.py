@@ -118,4 +118,4 @@ def find_associations(message):
                                 for targetCandidate in sentence.words[word.index+1:-1]:
                                     if targetCandidate.partOfSpeech in misc.nounCodes:
                                         target = targetCandidate
-               
+                                        break
