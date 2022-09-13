@@ -120,4 +120,4 @@ def find_associations(message):
                                         target = targetCandidate
                                         break
                                 # If we have a subject and target, create the association
-       
+                                if s
