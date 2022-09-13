@@ -119,4 +119,5 @@ def find_associations(message):
                                     if targetCandidate.partOfSpeech in misc.nounCodes:
                                         target = targetCandidate
                                         break
-                                # If we have a subject and targe
+                                # If we have a subject and target, create the association
+       
