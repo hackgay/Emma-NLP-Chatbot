@@ -121,4 +121,6 @@ def find_associations(message):
                                         break
                                 # If we have a subject and target, create the association
                                 if subject != None and target != None:
-                                    train_association(subject.lemma, 'H
+                                    train_association(subject.lemma, 'HAS', target.lemma)
+
+          
