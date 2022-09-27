@@ -123,4 +123,5 @@ def find_associations(message):
                                 if subject != None and target != None:
                                     train_association(subject.lemma, 'HAS', target.lemma)
 
-                            # # VB + obj >> VB HAS-OBJECT NN (This button releases the hounds. >> release H
+                            # # VB + obj >> VB HAS-OBJECT NN (This button releases the hounds. >> release HAS-OBJECT hound)
+             
