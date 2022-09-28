@@ -124,4 +124,4 @@ def find_associations(message):
                                     train_association(subject.lemma, 'HAS', target.lemma)
 
                             # # VB + obj >> VB HAS-OBJECT NN (This button releases the hounds. >> release HAS-OBJECT hound)
-             
+                            # if "OBJ" in wor
