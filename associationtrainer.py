@@ -126,4 +126,4 @@ def find_associations(message):
                             # # VB + obj >> VB HAS-OBJECT NN (This button releases the hounds. >> release HAS-OBJECT hound)
                             # if "OBJ" in word.subjectObject and word.partOfSpeech in misc.nounCodes:
                             #     for objectCandidate in sentence.words:
-                            #         # TODO: Add more criteria for c
+                            #         # TODO: Add more criteria for choosing object associations
