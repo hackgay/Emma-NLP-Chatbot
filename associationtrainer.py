@@ -127,4 +127,4 @@ def find_associations(message):
                             # if "OBJ" in word.subjectObject and word.partOfSpeech in misc.nounCodes:
                             #     for objectCandidate in sentence.words:
                             #         # TODO: Add more criteria for choosing object associations
-                            #         if objectCandidate.p
+                            #         if objectCandidate.partOfSpeech in misc.nounCodes
