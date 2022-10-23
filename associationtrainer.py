@@ -128,4 +128,4 @@ def find_associations(message):
                             #     for objectCandidate in sentence.words:
                             #         # TODO: Add more criteria for choosing object associations
                             #         if objectCandidate.partOfSpeech in misc.nounCodes:
-                            #      
+                            #             train_association(o
