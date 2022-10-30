@@ -61,3 +61,33 @@ if os.path.isfile('moodHistory.p'):
     logging.debug("Mood history found!")
     with open('moodHistory.p','rb') as moodFile: moodHistory = pickle.load(moodFile)
     logging.debug("Mood history loaded!")
+else:   
+    logging.warn("Mood history file not found! Creating...")
+    with open('moodHistory.p','wb') as moodFile:
+        moodHistory = [0.0] * 10
+        pickle.dump(moodHistory, moodFile)
+    logging.debug("Mood history file created.")
+
+# Mood-related things
+def add_mood_value(text):
+    """Adds the new mood value to the front of the history list and removes the last one"""
+    moodValue = pattern.en.sentiment(text)[0]
+    logging.debug("Adding mood value {0} to mood history {1}...".format(moodValue, moodHistory))
+    moodHistory.insert(0, moodValue)
+    del moodHistory[-1]
+    logging.debug("New mood history is {0}".format(moodHistory))
+
+    # And save!
+    logging.debug("Saving mood history...")
+    with open('moodHistory.p', 'wb') as moodFile: 
+        pickle.dump(moodHistory, moodFile)
+
+    return moodValue
+
+def calculate_mood():
+    """Mood is calculated with a weighted mean average formula, skewed towards more recent moods"""
+    logging.debug("Calculating mood...")
+    # First, we calculate the weighted mood history
+    weightedMoodHistory = []
+    weightedMoodHistory.extend([moodHistory[0], moodHistory[0], moodHistory[0], moodHistory[1], moodHistory[1]])
+    weightedMoodHistory.extend(moodHistory[2:9])
