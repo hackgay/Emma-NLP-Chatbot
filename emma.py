@@ -91,3 +91,26 @@ def calculate_mood():
     weightedMoodHistory = []
     weightedMoodHistory.extend([moodHistory[0], moodHistory[0], moodHistory[0], moodHistory[1], moodHistory[1]])
     weightedMoodHistory.extend(moodHistory[2:9])
+
+    # And take the average to get the mood
+    mood = sum(weightedMoodHistory) / 13
+    logging.debug("Mood: {0}".format(mood))
+    return mood
+
+def express_mood(moodValue):
+    """Returns a string which can be attached to a post as a tag expressing Emma's mood"""
+    logging.debug("Expressing mood...")
+    if -0.8 > moodValue: 
+        return u"feeling abysmal \ud83d\ude31"
+    elif -0.6 > moodValue >= -0.8: 
+        return u"feeling dreadful \ud83d\ude16"
+    elif -0.4 > moodValue >= -0.6: 
+        return u"feeling bad \ud83d\ude23"
+    elif -0.2 > moodValue >= -0.4: 
+        return u"feeling crummy \ud83d\ude41"
+    elif 0.0 > moodValue >= -0.2: 
+        return u"feeling blah \ud83d\ude15"
+    elif 0.2 > moodValue >= 0.0: 
+        return u"feeling alright \ud83d\ude10"
+    elif 0.4 > moodValue >= 0.2: 
+        return u"feeling good \ud83d\ude42"
