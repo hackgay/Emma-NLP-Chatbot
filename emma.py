@@ -114,3 +114,43 @@ def express_mood(moodValue):
         return u"feeling alright \ud83d\ude10"
     elif 0.4 > moodValue >= 0.2: 
         return u"feeling good \ud83d\ude42"
+    elif 0.6 > moodValue >= 0.4: 
+        return u"feeling great \ud83d\ude09"
+    elif 0.8 > moodValue >= 0.6: 
+        return u"feeling fantastic \ud83d\ude00"
+    elif moodValue >= 0.8: 
+        return u"feeling glorious \ud83d\ude1c"
+
+# Preparing our datatypes
+# Let's start by defining some classes for NLU stuff:
+class Word:
+    """
+    Defines a word and its attributes
+
+    Class variables:
+    word            str     String representation of the Word
+    lemma           str     String representation of the root form of the Word
+    partOfSpeech    str     Penn Treebank II part-of-speech tag
+    chunk           str     Part of the Sentence (noun-phrase, verb-phrase, etc.)
+    subjectObject   str     If the Word is a noun, this indicates whether it is the subject or object of the Sentence
+    index           int     The word's position in the sentence (0-indexed)
+    """
+
+    def __init__(self, word, index):
+        self.word = word[0]
+        self.lemma = word[5]
+        self.partOfSpeech = word[1]
+        self.chunk = word[2]
+        self.subjectObject = word[4]
+        self.index = index
+
+    def __str__(self): 
+        return self.word
+
+class Sentence:
+    """
+    Defines a sentence and its attributes, auto-generates and fills itself with Word objects
+
+    Class variables:
+    sentence                str                     String representation of the Sentence
+    words                   list                    Ordered list of Word objects in the Sentence
