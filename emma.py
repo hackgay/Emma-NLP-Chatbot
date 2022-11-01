@@ -186,3 +186,22 @@ class Sentence:
 
 class Message:
     """
+    Defines a collection of Sentences and its attributes, auto-generates and fills itself with Sentence objects
+
+    Class Variables
+    message         str     String representation of the Message
+    sentences       list    Ordered list of Sentence objects in the Message
+    avgMood         float   Average of the mood value of all the Sentences in the Message
+    keywords        list    The message's main topics
+    sender          str     The name of the person who sent the message
+    """
+
+    def __init__(self, message, sender=(u'Anonymous')):
+        self.message = message
+        self.sentences = []
+        self.avgMood = int
+        self.keywords = []
+        self.sender = sender
+
+        # Get a list of Sentence objects contained in the Message and put them in taggedSentences
+        for sentence in pattern.en.parse(
