@@ -154,3 +154,35 @@ class Sentence:
     Class variables:
     sentence                str                     String representation of the Sentence
     words                   list                    Ordered list of Word objects in the Sentence
+    mood                    float                   Positive or negative sentiment in the Sentence
+    length                  int                     Length of the sentence
+    domain                  str                     The sentence's domain as determined by the wordpatternfinder module
+    interrogativePackage    InterrogativePackage    If the sentence domain is INTERROGATIVE, this represents the question that they're asking
+    """
+
+    def __init__(self, sentence):
+        self.sentence = sentence
+        self.words = []
+        self.mood = add_mood_value(self.sentence)
+        self.length = int
+        self.domain = str
+        self.interrogativePackage = None
+
+        # Get a list of Word objects contained in the Sentence and put them in taggedWords
+        for i, word in enumerate(pattern.en.parse(
+            self.sentence,
+            tokenize = False, 
+            tags = True, 
+            chunks = True, 
+            relations = True, 
+            lemmata = True, 
+            encoding = 'utf-8'
+        ).split()[0]):
+            self.words.append(Word(word, i))
+        self.length = len(self.words)
+
+    def __str__(self): 
+        return self.sentence
+
+class Message:
+    """
