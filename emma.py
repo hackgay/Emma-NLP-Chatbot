@@ -205,3 +205,33 @@ class Message:
 
         # Get a list of Sentence objects contained in the Message and put them in taggedSentences
         for sentence in pattern.en.parse(
+            self.message, 
+            tokenize = True, 
+            tags = False, 
+            chunks = False, 
+            relations = False, 
+            lemmata = False, 
+            encoding = 'utf-8'
+        ).split('\n'):
+            self.sentences.append(Sentence(sentence))
+
+        # Average Sentence moods and record the value
+        moods = []
+        for sentence in self.sentences: 
+            moods.append(sentence.mood)
+        self.avgMood = sum(moods) / len(moods)
+
+        # Find sentences' domains and InterrogativePackages (if applicable)
+        for sentence in self.sentences:
+            sentence = wordpatternfinder.find_patterns(sentence)
+
+        # Use pattern.vector to find keywords
+        for keyword in pattern.vector.Document(self.message).keywords():
+            keyword = pattern.en.lemma(keyword[1])
+            self.keywords.append(keyword)
+
+        # If pattern.vector couldn't find any keywords, use the old method
+        if self.keywords == []:
+            logging.warning("No keywords detected by pattern.en. Using old method...")
+            for sentence in self.sentences:
+                for word in sentence.words:
