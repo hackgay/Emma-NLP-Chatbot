@@ -235,3 +235,32 @@ class Message:
             logging.warning("No keywords detected by pattern.en. Using old method...")
             for sentence in self.sentences:
                 for word in sentence.words:
+                    if word.partOfSpeech in misc.nounCodes and word.lemma not in self.keywords:
+                        self.keywords.append(word.lemma)
+
+        # Check keywords against words that we have in the dictionary
+        with connection:
+            cursor.execute('SELECT * FROM dictionary;')
+            dictionary = []
+            for row in cursor.fetchall():
+                dictionary.append(row[0])
+
+        for keyword in self.keywords:
+            if keyword not in dictionary:
+                logging.debug("Removing unknown word {0} from keyword list".format(keyword))
+                self.keywords.remove(keyword)
+
+        # If we don't have any keywords, that's bad
+        if self.keywords == []:
+            logging.error("No keywords detected in message! This will cause a critical failure when we try to reply!")
+
+    def __str__(self): 
+        return self.message
+
+def train(message):
+    """Read a message as a string, learn from it, store what we learned in the database"""
+    logging.info("Consuming message...")
+    message = pronouns.determine_pronoun_references(message)
+    message = pronouns.determine_posessive_references(message)
+
+    logging.info("Looking for new words...")
