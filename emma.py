@@ -264,3 +264,30 @@ def train(message):
     message = pronouns.determine_posessive_references(message)
 
     logging.info("Looking for new words...")
+    # Gather words we already know from database
+    with connection:
+        cursor.execute('SELECT * FROM dictionary;')
+
+        knownWords = []
+        for row in cursor.fetchall():
+            knownWords.append((row[0], row[1]))     # (lemma, POS)
+
+        # Compare them against each word from the message
+        for sentence in message.sentences:
+            for word in sentence.words:
+                if word.partOfSpeech not in misc.trashPOS:
+                    # If it's a word we don't have in the database, add it
+                    #TODO: check the types of word.lemma and knownWord because apparently they aren't the same
+                    if word.lemma not in [knownWord[0] for knownWord in knownWords if word.lemma == knownWord[0]]:
+                        logging.info("Learned new word: \'{0}\'!".format(word.lemma.encode('utf-8', 'ignore')))
+                        logging.debug("Prev. word POS: \'{0}\'".format(word.partOfSpeech))
+                        knownWords.append((word.lemma, word.partOfSpeech))
+                        with connection:
+                            cursor.execute('INSERT INTO dictionary VALUES (?, ?, 0);', (re.escape(word.lemma.encode('utf-8', 'ignore')), word.partOfSpeech))
+
+    logging.info("Finding associations...")
+    associationtrainer.find_associations(message)
+
+def filter_message(messageText):
+    """Make it easier for the computer to read messages (and also screen out banned words)"""
+    # Add punctuation is it isn't already present
