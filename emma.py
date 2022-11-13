@@ -291,3 +291,44 @@ def train(message):
 def filter_message(messageText):
     """Make it easier for the computer to read messages (and also screen out banned words)"""
     # Add punctuation is it isn't already present
+    if messageText[-1] not in ['!', '?', '.']:
+        messageText += "."
+
+    # Translate internet slang and fix weird parsing stuff
+    filtered = []
+    for word in messageText.split(' '):
+        word = word.decode('utf-8')
+        # Translate internet abbreviations
+        if word.lower() in misc.netspeak.keys():
+            logging.debug("Translating \'{0}\' from net speak...".format(word))
+            filtered.extend(misc.netspeak[word.lower()])
+        # Change "n't" to "not"
+        elif word.lower() in [u"n\'t", u"n\u2019t", u"n\u2018t"]:
+            logging.debug("Replacing \"n\'t\" with \"not\"...")
+            filtered.append(u'not')
+        # Remove "'s"
+        elif word.lower() == u"\'s":
+            pass
+        # Remove double quote characters
+        elif "\"" in word or u"“" in word or u"”" in word:
+            pass
+        else:
+            filtered.append(word)
+    filteredText = ' '.join(filtered)
+
+    return filteredText
+
+
+# ooo        ooooo            o8o                   ooooo                                       
+# `88.       .888'            `"'                   `888'                                       
+#  888b     d'888   .oooo.   oooo  ooo. .oo.         888          .ooooo.   .ooooo.  oo.ooooo.  
+#  8 Y88. .P  888  `P  )88b  `888  `888P"Y88b        888         d88' `88b d88' `88b  888' `88b 
+#  8  `888'   888   .oP"888   888   888   888        888         888   888 888   888  888   888 
+#  8    Y     888  d8(  888   888   888   888        888       o 888   888 888   888  888   888 
+# o8o        o888o `Y888""8o o888o o888o o888o      o888ooooood8 `Y8bod8P' `Y8bod8P'  888bod8P' 
+#                                                                                     888       
+#                                                                                    o888o                                                                            
+
+# TODO: remove class
+class Ask:
+    def __init__(self, message, sender, askid):
