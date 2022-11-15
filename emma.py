@@ -332,3 +332,31 @@ def filter_message(messageText):
 # TODO: remove class
 class Ask:
     def __init__(self, message, sender, askid):
+        self.sender = sender
+        self.askid = askid
+        self.message = message.encode('utf-8', 'ignore')
+        self.message = filter_message(self.message)
+        self.message = Message(self.message, self.sender)
+
+# Create Mastodon API instance
+mastodon = Mastodon(
+    access_token = 'emma_usercred.secret',
+    api_base_url = 'https://botsin.space'
+)
+
+# Create listener
+class Listener(StreamListener):
+    """
+    Listens for Mastodon activity
+
+    Class Variables
+    message         str     String representation of the Message
+    sender          str     Username of person who sent the Message
+    tootID          int     ID of the Toot so that we can reply
+    reply           str     Emma's reply to the Message
+    """
+    def on_notification(self, status):
+        if status.type == 'mention':       
+            # Don't reply to bot posts
+            if status.status.account.bot:
+                logging.info("Message is from a bot account. Skipping...")
