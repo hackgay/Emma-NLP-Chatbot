@@ -394,3 +394,39 @@ class Listener(StreamListener):
                     if word.lower() in bannedWords:
                         logging.info("Banned word {0} found in message. Skipping...")
                         return False
+
+            # Learn from and reply to the message
+            train(self.message)
+            reply = replybuilder.reply(self.message, calculate_mood())
+
+            if reply == False:
+                # Sentence generation failed
+                logging.error("Sentence generation failed.")
+                return False
+            else:
+                # Submit reply
+                self.reply = cgi.escape(reply)
+                logging.info("Reply: {0}".format(self.reply))
+                self.reply = reply.encode('utf-8', 'ignore')
+
+                logging.debug("Posting status to Mastodon...")
+                mastodon.status_reply(
+                    to_status = status.status,
+                    status = self.reply
+                )
+
+            return True
+        else:
+            return False
+
+if flags.enableDebugMode == False:
+    # Activate listener
+    logging.info("Activating listener...")
+    print mastodon.stream_user(
+        listener = Listener()
+    )
+
+else:
+    # Debug stuff
+    if flags.useTestingStrings: 
+        inputText = random.choice(flags.testingStrings)
