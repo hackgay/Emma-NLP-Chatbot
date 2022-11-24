@@ -1,2 +1,4 @@
 # Debug mode
-ena
+enableDebugMode = False
+
+# T
