@@ -1,4 +1,5 @@
 # Debug mode
 enableDebugMode = False
 
-# T
+# Testing Strings
+useTestingStrings 
