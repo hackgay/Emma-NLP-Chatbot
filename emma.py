@@ -430,3 +430,15 @@ else:
     # Debug stuff
     if flags.useTestingStrings: 
         inputText = random.choice(flags.testingStrings)
+    else: inputText = raw_input("Message >> ")
+
+    message = Message(filter_message(inputText.encode('utf-8', 'ignore')), "You")
+    logging.debug("Message: {0}".format(message.message))
+    train(message)
+
+    reply = replybuilder.reply(message, calculate_mood())
+    if reply == 0:
+        # Sentence generation failed
+        pass
+    else:
+        print reply
