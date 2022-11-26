@@ -5,4 +5,5 @@ enableDebugMode = False
 useTestingStrings = True
 testingStringType = 'simple'
 '''
-testingStringsSimpl
+testingStringsSimple = [
+    u"The sky is bl
