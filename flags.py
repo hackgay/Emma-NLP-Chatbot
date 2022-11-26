@@ -2,4 +2,5 @@
 enableDebugMode = False
 
 # Testing Strings
-useTestingStrings 
+useTestingStrings = True
+testingStringType
