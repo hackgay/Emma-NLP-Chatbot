@@ -3,4 +3,6 @@ enableDebugMode = False
 
 # Testing Strings
 useTestingStrings = True
-testingStringType
+testingStringType = 'simple'
+'''
+testingStringsSimpl
