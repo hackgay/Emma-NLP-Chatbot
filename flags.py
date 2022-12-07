@@ -10,4 +10,7 @@ testingStringsSimple = [
     u"Dogs are very fluffy!",
     u"I want to be your friend.",
     u"I love pickles!",
-    u"The quick brown fox jumped over the lazy dog.
+    u"The quick brown fox jumped over the lazy dog."
+]
+'''
+testingStringsSimple 
