@@ -17,4 +17,5 @@ testingStringsSimple = [
     u"What is the color of the sky?"
 ]
 
-if testingSt
+if testingStringType == 'simple':
+  
