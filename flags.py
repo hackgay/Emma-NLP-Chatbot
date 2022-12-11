@@ -14,4 +14,7 @@ testingStringsSimple = [
 ]
 '''
 testingStringsSimple = [
-    u"What is the colo
+    u"What is the color of the sky?"
+]
+
+if testingSt
