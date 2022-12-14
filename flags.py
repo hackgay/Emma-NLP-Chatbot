@@ -18,4 +18,4 @@ testingStringsSimple = [
 ]
 
 if testingStringType == 'simple':
-  
+    testingStrings = testingStrings
