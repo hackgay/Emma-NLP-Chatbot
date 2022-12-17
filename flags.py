@@ -20,4 +20,4 @@ testingStringsSimple = [
 if testingStringType == 'simple':
     testingStrings = testingStringsSimple
 elif testingStringType == 'fuzz':
-    with open
+    with open('utils/questions.txt', 'r') a
