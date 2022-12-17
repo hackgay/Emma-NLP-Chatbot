@@ -18,4 +18,5 @@ testingStringsSimple = [
 ]
 
 if testingStringType == 'simple':
-    testingStrings = testingStrings
+    testingStrings = testingStringsSimple
+elif testingStringType == '
