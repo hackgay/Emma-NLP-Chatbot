@@ -19,4 +19,5 @@ testingStringsSimple = [
 
 if testingStringType == 'simple':
     testingStrings = testingStringsSimple
-elif testingStringType == '
+elif testingStringType == 'fuzz':
+    with open
