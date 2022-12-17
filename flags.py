@@ -21,4 +21,4 @@ if testingStringType == 'simple':
     testingStrings = testingStringsSimple
 elif testingStringType == 'fuzz':
     with open('utils/questions.txt', 'r') as file:
-        testingSt
+        testingStrings = [line.decode('utf-8
