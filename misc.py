@@ -5,4 +5,5 @@ versionNumber = "2.1.0"
 netspeak = {
     u'aight': [u'alright'],
     u'btw': [u'by', u'the', u'way'],
-    u'cn':
+    u'cn': [u'can'],
+    u'gonna': [u'going', 
