@@ -8,4 +8,4 @@ netspeak = {
     u'cn': [u'can'],
     u'gonna': [u'going', u'to'],
     u'im': [u'I\'m'],
-    u
+    u'imo': [u'in', u'my', u'
