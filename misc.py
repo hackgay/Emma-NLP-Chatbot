@@ -9,4 +9,5 @@ netspeak = {
     u'gonna': [u'going', u'to'],
     u'im': [u'I\'m'],
     u'imo': [u'in', u'my', u'opinion'],
-    u'lemme': 
+    u'lemme': [u'let', u'me'],
+    u'n': [
