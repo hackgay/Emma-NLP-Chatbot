@@ -11,4 +11,5 @@ netspeak = {
     u'imo': [u'in', u'my', u'opinion'],
     u'lemme': [u'let', u'me'],
     u'n': [u'and'],
-    u'obv': [u'ob
+    u'obv': [u'obviously'],
+    u'omg': [u'oh', 
