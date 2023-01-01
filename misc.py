@@ -12,4 +12,6 @@ netspeak = {
     u'lemme': [u'let', u'me'],
     u'n': [u'and'],
     u'obv': [u'obviously'],
-    u'omg': [u'oh', 
+    u'omg': [u'oh', u'my', u'god'],
+    u'r': [u'are'],
+  
