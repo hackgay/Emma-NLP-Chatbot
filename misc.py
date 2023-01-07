@@ -14,4 +14,5 @@ netspeak = {
     u'obv': [u'obviously'],
     u'omg': [u'oh', u'my', u'god'],
     u'r': [u'are'],
-    u'tbh': [u'to', u'be', 
+    u'tbh': [u'to', u'be', u'honest'],
+    u'u': [u'
