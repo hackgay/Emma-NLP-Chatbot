@@ -18,4 +18,7 @@ netspeak = {
     u'u': [u'you'],
     u'ur': [u'your'],
     u'yr': [u'your'],
- 
+    u'yea': [u'yeah']
+}
+
+nounCod
