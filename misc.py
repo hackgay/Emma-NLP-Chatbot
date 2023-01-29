@@ -21,4 +21,5 @@ netspeak = {
     u'yea': [u'yeah']
 }
 
-nounCodes = ['NN', 'NNS', 'NNP', 'NN
+nounCodes = ['NN', 'NNS', 'NNP', 'NNPS']
+verbCodes = ['VB', 'VBD',
