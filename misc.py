@@ -23,4 +23,5 @@ netspeak = {
 
 nounCodes = ['NN', 'NNS', 'NNP', 'NNPS']
 verbCodes = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
-adjectiveCodes = ['JJ', 'JJR',
+adjectiveCodes = ['JJ', 'JJR', 'JJS']
+adverbCodes = ['RB',
