@@ -25,4 +25,4 @@ nounCodes = ['NN', 'NNS', 'NNP', 'NNPS']
 verbCodes = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
 adjectiveCodes = ['JJ', 'JJR', 'JJS']
 adverbCodes = ['RB', 'RBR', 'RBS', 'RP']
-whWordCode
+whWordCodes = ['WDT', 'WP', 'WP$', 'WRB']
