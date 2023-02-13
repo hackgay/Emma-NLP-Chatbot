@@ -26,3 +26,5 @@ verbCodes = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
 adjectiveCodes = ['JJ', 'JJR', 'JJS']
 adverbCodes = ['RB', 'RBR', 'RBS', 'RP']
 whWordCodes = ['WDT', 'WP', 'WP$', 'WRB']
+
+trashPOS = ['LS', 'SYM
