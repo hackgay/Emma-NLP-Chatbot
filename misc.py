@@ -27,4 +27,6 @@ adjectiveCodes = ['JJ', 'JJR', 'JJS']
 adverbCodes = ['RB', 'RBR', 'RBS', 'RP']
 whWordCodes = ['WDT', 'WP', 'WP$', 'WRB']
 
-trashPOS = ['LS', 'SYM', 'UH', '.', ',', ':'
+trashPOS = ['LS', 'SYM', 'UH', '.', ',', ':', '\"' '(', ')', 'FW']
+
+greetingStri
