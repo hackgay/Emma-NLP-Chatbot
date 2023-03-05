@@ -46,3 +46,4 @@ def determine_posessive_references(message):
                 word.lemma = message.sender
                 word.partOfSpeech = 'NNP'
     
+    return message
