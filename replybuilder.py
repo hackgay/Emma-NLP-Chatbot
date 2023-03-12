@@ -113,3 +113,36 @@ def make_declarative(sentence):
     allowComplexDeclarative = False
     if len(hasAssociations) > 0 or len(isaAssociations) or len(hasabilitytoAssociations) > 0:
         allowComplexDeclarative = True
+
+    # Decide what kind of sentence to make and make it
+    if random.choice([False, allowComplexDeclarative]):
+        # Complex
+        # Decide /what kinds/ of complex sentence we can make
+        validSentenceAspects = []
+        if len(hasAssociations) > 0:
+            validSentenceAspects.append('HAS')
+        if len(isaAssociations) > 0:
+            validSentenceAspects.append('IS-A')
+        if len(hasabilitytoAssociations) > 0:
+            validSentenceAspects.append('HAS-ABILITY-TO')
+        # Choose the kind of sentence to make
+        sentenceAspect = random.choice(validSentenceAspects)
+
+        if sentenceAspect == 'HAS':
+            sentence = make_simple(sentence)
+            sentence.contents.append(SBBHaveHas())
+            if random.choice([True, False]):
+                sentence.contents.append(SBBArticle())
+                sentence.contents.append(weighted_roll(hasAssociations).target)
+            else:
+                sentence.contents.append(pattern.en.pluralize(weighted_roll(hasAssociations).target))
+        elif sentenceAspect == 'IS-A':
+            sentence = make_simple(sentence)
+            sentence.contents.extend([SBBIsAre(), SBBArticle()])
+            sentence.contents.append(weighted_roll(isaAssociations).target)
+        elif sentenceAspect == 'HAS-ABILITY-TO':
+            if random.choice([True, False]):
+                sentence = make_simple(sentence)
+                sentence.contents.append(u'can')
+                sentence.contents.append(weighted_roll(hasabilitytoAssociations).target)
+            else:
