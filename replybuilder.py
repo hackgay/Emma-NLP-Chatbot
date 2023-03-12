@@ -80,3 +80,36 @@ def find_associations(keyword):
     return associations
 
 def find_part_of_speech(keyword):
+    """Looks in our dictionary for the part of speech of a given keyword"""
+    # TODO: Make this able to handle words with more than one usage
+    logging.debug("Looking up \"{0}\" in the dictionary...".format(keyword))
+    with connection:
+        cursor.execute('SELECT part_of_speech FROM dictionary WHERE word = ?;', (keyword,))
+        SQLReturn = cursor.fetchall()
+        if SQLReturn:
+            return SQLReturn[0]
+        else:
+            return "NN"
+
+# TODO: Random choices should be influenced by mood or other
+def make_declarative(sentence):
+    # Look for HAS, IS-A or HAS-ABILITY-TO associations 
+    associations = find_associations(sentence.topic)
+    hasAssociations = []
+    isaAssociations = []
+    hasabilitytoAssociations = []
+    haspropertyAssociations = []
+    for association in associations:
+        if association.associationType == "HAS" and association.word == sentence.topic:
+            hasAssociations.append((association.weight, association))
+        elif association.associationType == "IS-A" and association.word == sentence.topic:
+            isaAssociations.append((association.weight, association))
+        elif association.associationType == "HAS-ABILITY-TO" and association.word == sentence.topic:
+            hasabilitytoAssociations.append((association.weight, association))
+        elif association.associationType == "HAS-PROPERTY" and association.word == sentence.topic:
+            haspropertyAssociations.append((association.weight, association))
+            
+    # If we have associations other than HAS-PROPERTY ones, we can make more complex sentences
+    allowComplexDeclarative = False
+    if len(hasAssociations) > 0 or len(isaAssociations) or len(hasabilitytoAssociations) > 0:
+        allowComplexDeclarative = True
