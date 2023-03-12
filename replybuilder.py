@@ -146,3 +146,36 @@ def make_declarative(sentence):
                 sentence.contents.append(u'can')
                 sentence.contents.append(weighted_roll(hasabilitytoAssociations).target)
             else:
+                sentence = make_simple(sentence)
+                sentence.contents.append(pattern.en.conjugate(weighted_roll(hasabilitytoAssociations).target, number="PL"))
+    else:
+        # Simple
+        if random.choice([True, False]):
+            sentence = make_simple(sentence)
+        else:
+            sentence.contents.append(sentence.topic)
+        sentence.contents.append(SBBIsAre())
+        sentence.contents.append(weighted_roll(haspropertyAssociations).target)
+        
+    logging.debug("Reply (in progress): {0}".format(str(sentence.contents)))
+    return sentence
+
+def make_imperative(sentence):
+    # Look for things the object can do
+    associations = find_associations(sentence.topic)
+
+    # Get HAS-ABILITY-TO associations and also look for HAS associations
+    hasabilitytoAssociations = []
+    hasAssociations = []
+    for association in associations:
+        if association.associationType == "HAS-ABILITY-TO" and association.word == sentence.topic:
+            hasabilitytoAssociations.append((association.weight, association))
+        elif association.associationType == "HAS" and association.word == sentence.topic:
+            hasAssociations.append((association.weight, association))
+
+    # If we have HAS associations, we can make slightly more complex sentences
+    allowComplexImperative = False
+    if len(hasAssociations) > 0:
+        allowComplexImperative = True
+
+    # Make the sentence
