@@ -179,3 +179,23 @@ def make_imperative(sentence):
         allowComplexImperative = True
 
     # Make the sentence
+    sentence.contents.append(sentence.topic)
+    if random.choice([True, False]):
+        sentence.contents.append(u'can')
+    # Coin Flip to decide whether to add always or never
+    if random.choice([True, False]):
+        sentence.contents.append(random.choice([u'always', u'never', u'sometimes']))
+    sentence.contents.append(weighted_roll(hasabilitytoAssociations).target)
+    if random.choice([False, allowComplexImperative]):
+        # if random.choice([True, False]):
+        #     sentence.contents.append(u'with')
+        if random.choice([True, False]):
+            sentence.contents.append(SBBArticle())
+            sentence.contents.append(weighted_roll(hasAssociations).target)
+        else:
+            if sentence.isPlural:
+                sentence.contents.append(pattern.en.pluralize(weighted_roll(hasAssociations).target))
+            else:
+                sentence.contents.append(weighted_roll(hasAssociations).target)
+        
+    logging.debug("Reply (in progress): {0}".format(str(sentence.contents)))
