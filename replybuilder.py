@@ -199,3 +199,34 @@ def make_imperative(sentence):
                 sentence.contents.append(weighted_roll(hasAssociations).target)
         
     logging.debug("Reply (in progress): {0}".format(str(sentence.contents)))
+    return sentence
+
+def make_interrogative(sentence):
+    # Start the setence with a template
+    starters = [
+        [u'what', u'is'],
+        [u'what\'s'],
+        [],
+    ]
+    sentence.contents.extend(random.choice(starters))
+
+    # Add on the subject
+    sentence = make_simple(sentence)
+
+    sentence.contents.append(u'?')
+    logging.debug("Reply (in progress): {0}".format(str(sentence.contents)))
+    return sentence
+
+def make_simple(sentence):
+    # Look for adjectives to describe the object
+    associations = find_associations(sentence.topic)
+
+    # Decide whether to add an article
+    if random.choice([True, False]):
+        sentence.contents.append(SBBArticle())
+
+    # See if we have any adjective associations handy
+    haspropertyAssociations = []
+    for association in associations:
+        if association.associationType == "HAS-PROPERTY" and association.word == sentence.topic:
+            haspropertyAssociations.append((association.weight, association))
