@@ -230,3 +230,35 @@ def make_simple(sentence):
     for association in associations:
         if association.associationType == "HAS-PROPERTY" and association.word == sentence.topic:
             haspropertyAssociations.append((association.weight, association))
+
+    # If we do, put them all in a list and have a chance to add some to the sentence
+    if len(haspropertyAssociations) > 0:
+        # Add adjective(s)
+        if len(haspropertyAssociations) > 1:
+            for i in range(random.randint(0, 2)):
+                sentence.contents.append(weighted_roll(haspropertyAssociations).target)
+        else:
+            sentence.contents.append(weighted_roll(haspropertyAssociations).target)
+        # Add the word
+        sentence.contents.append(sentence.topic)
+        """
+        # Alternate template that might live in make_declarative() later
+        # Add the word
+        sentence.contents.append(sentence.topic)
+        # Add is/are
+        sentence.contents.append(SBBIsAre)
+        # Add an adjective
+        sentence.contents.append(weighted_roll(haspropertyAssociations).target)
+        # We can go one step further
+        if random.choice([True, False]) and len(haspropertyAssociations) > 1:
+            sentence.contents.append(u'and')
+            sentence.contents.append(weighted_roll(haspropertyAssociations).target)
+        """
+    else:
+        # If we have no adjectives, just add the word
+        sentence.contents.append(sentence.topic)
+
+    logging.debug("Reply (in progress): {0}".format(str(sentence.contents)))
+    return sentence
+        
+def make_compound(sentence, altTopic):
