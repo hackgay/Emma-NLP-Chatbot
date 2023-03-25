@@ -262,3 +262,22 @@ def make_simple(sentence):
     return sentence
         
 def make_compound(sentence, altTopic):
+    # This function gets an extra topic so that it can seed a second call of make_simple()
+    # Make the first half of the sentence
+    sentence = make_simple(sentence)
+
+    # Make a 'fake' sentence to generate the second half of the sentence
+    shellSentence = Sentence()
+    shellSentence.topic = altTopic
+    shellSentence.domain = 'simple'
+    shellSentence = make_simple(shellSentence)
+
+    # Have a chance to add a comma
+    if random.choice([True, False]):
+        sentence.contents[-1] = sentence.contents[-1] + u','
+
+    # Add a conjunction to the end of the first sentence
+    if random.choice([True, False]):
+        sentence.contents.append(SBBConjunction())
+
+    # Paste the second half of the sentence onto the first half
