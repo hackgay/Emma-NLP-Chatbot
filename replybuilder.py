@@ -281,3 +281,42 @@ def make_compound(sentence, altTopic):
         sentence.contents.append(SBBConjunction())
 
     # Paste the second half of the sentence onto the first half
+    sentence.contents.extend(shellSentence.contents)
+
+    logging.debug("Reply (in progress): {0}".format(str(sentence.contents)))
+    return sentence
+
+def make_greeting(message):
+    # This function is a little different from the others, but it works pretty similarly
+    # First we make a shell sentence, like in make_compound()
+    shellSentence = Sentence()
+    shellSentence.domain = 'greeting'
+
+    # Start our sentence with a greeting
+    # Walk into the room, gonna make your bang go boom when I'm like
+    starters = [
+        [u'hey'],
+        [u'hi'],
+        [u'hello']
+    ]
+    shellSentence.contents.extend(random.choice(starters))
+
+    # Coin flip for adding the word 'there'
+    if random.choice([True, False]):
+        shellSentence.contents.append(u'there')
+
+    # Add the message sender's username
+    shellSentence.contents.append(message.sender)
+    shellSentence.contents.append(SBBPunctuation())
+    return shellSentence
+        
+def reply(message, moodValue, allowInterrogative=True):
+    """Replies to a Message object using the associations we built using train()"""
+    logging.info("Building reply...")
+    reply = []
+
+    # Make sure we can actually generate a reply
+    if len(message.keywords) > 0:
+        pass
+    else:
+        logging.warn('No keywords in Message object. Sentence generation failed.')
