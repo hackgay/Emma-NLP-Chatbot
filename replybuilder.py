@@ -320,3 +320,27 @@ def reply(message, moodValue, allowInterrogative=True):
         pass
     else:
         logging.warn('No keywords in Message object. Sentence generation failed.')
+        return False
+
+    # Decide how many sentences long our reply will be (excluding greetings, which don't count because a message could be just a greeting)
+    minSentences = 1
+    maxSentences = 4
+    sentences = random.randint(minSentences, maxSentences)
+    for i in range(0, sentences):
+        reply.append(Sentence())
+    logging.debug("Generating {0} sentences...".format(sentences))
+
+    # Choose the sentences' topics and domains
+    logging.info("Choosing sentence topics and domains...")
+    logging.debug("Message has {0} keywords".format(len(message.keywords)))
+    logging.debug("Keywords: {0}".format(str(message.keywords)))
+
+    # We only want to allow one question per reply, so this variable tracks whether or not we've used it up
+    replyHasInterrogative = False
+
+    for i, sentence in enumerate(reply):
+        logging.debug("Choosing topic for sentence {0}...".format(i+1))
+        sentence.topic = random.choice(message.keywords)
+
+        # Look up associations for the keyword
+        logging.debug("Choosing domain for sentence {0}...".format(i+1))
