@@ -344,3 +344,42 @@ def reply(message, moodValue, allowInterrogative=True):
 
         # Look up associations for the keyword
         logging.debug("Choosing domain for sentence {0}...".format(i+1))
+        associations = find_associations(sentence.topic)
+
+        # Choose a domain based on the associations
+        # Decide what domains are valid to be chosen
+        validDomains = {
+            'declarative': False,
+            'imperative': False,
+            'interrogative': False,
+            'simple': False,
+            'compound': False
+        }
+        for association in associations:
+            if association.word == sentence.topic:
+                if association.associationType == 'HAS-PROPERTY':
+                    validDomains['declarative'] = True
+                if association.associationType == "HAS-ABILITY-TO":
+                    validDomains['imperative'] = True
+                if association.associationType == "HAS-PROPERTY":
+                    validDomains['simple'] = True
+        if validDomains['simple'] and len(associations) > 1:
+            validDomains['compound'] = True
+        if moodValue > -0.4:
+            # Only allow one interrogative per reply
+            if replyHasInterrogative == False:
+                validDomains['interrogative'] = True
+            
+        domains = []
+        if validDomains['declarative']:
+            domains.append('declarative')
+        if validDomains['imperative']:
+            domains.append('imperative')
+        if validDomains['simple']:
+            domains.append('simple')
+        if validDomains['compound']:
+            domains.append('compound')
+        if validDomains['interrogative']:
+            domains.append('interrogative')
+        # If we can generate non-interrogative sentences, we would profer to do that
+        if len(domains) > 2:
