@@ -383,3 +383,33 @@ def reply(message, moodValue, allowInterrogative=True):
             domains.append('interrogative')
         # If we can generate non-interrogative sentences, we would profer to do that
         if len(domains) > 2:
+            if 'interrogative' in domains:
+                domains.remove('interrogative')
+
+        if len(domains) > 0:
+            sentence.domain = random.choice(domains)
+        else: 
+            logging.warn('No domains available for sentence generation. Sentence generation failed.')
+            return False
+        
+        logging.debug("Valid domains: {0}".format(str(domains)))
+        logging.debug("Chose {0}".format(sentence.domain))
+
+        # Build sentence structures
+        logging.info("Building {0} structure for sentence {1} of {2}...".format(sentence.domain, i+1, len(reply)))
+        if sentence.domain == 'declarative':
+            sentence = make_declarative(sentence)
+            sentence.contents.append(SBBPunctuation())
+        elif sentence.domain == 'imperative':
+            sentence = make_imperative(sentence)
+            sentence.contents.append(SBBPunctuation())
+        elif sentence.domain == 'interrogative':
+            # Only allow one interrogative per reply
+            replyHasInterrogative = True
+            sentence = make_interrogative(sentence)
+        elif sentence.domain == 'simple':
+            sentence = make_simple(sentence)
+            sentence.contents.append(SBBPunctuation())
+        elif sentence.domain == 'compound':
+            sentence = make_compound(sentence, random.choice(message.keywords))
+            sentence.contents.append(SBBPunctuation())
