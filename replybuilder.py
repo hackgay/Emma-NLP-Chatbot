@@ -413,3 +413,37 @@ def reply(message, moodValue, allowInterrogative=True):
         elif sentence.domain == 'compound':
             sentence = make_compound(sentence, random.choice(message.keywords))
             sentence.contents.append(SBBPunctuation())
+
+    # Reorder sentences based on their domain
+    # TODO: come up with a better way to do this
+    reorderedReply = []
+    for sentence in reply:
+        if sentence.domain != 'interrogative':
+            reorderedReply.append(sentence)
+    for sentence in reply:
+        if sentence.domain == 'interrogative':
+            reorderedReply.append(sentence)
+    reply = reorderedReply
+
+    # Decide whether or not to add a greeting -- various factors contribute to a weighted coin flip
+    greetingAdditionPotential = 0
+    for greeting in misc.greetingStrings:
+        if greeting in ' '.split(message.message)[0:3]:
+            greetingAdditionPotential += 1
+    if message.avgMood >= 0.2:
+        greetingAdditionPotential += 1
+    if moodValue >= 0.2:
+        greetingAdditionPotential += 1
+
+    # If emma's mood is low enough, destroy any chance of making a greeting
+    if moodValue < -0.4:
+        greetingAdditionPotential = 0
+
+    # Do weighted coin flip to decide whether or not to add a greeting
+    if random.choice(([True] * greetingAdditionPotential) + [False]):
+        reply.insert(0, make_greeting(message))
+
+    # Evaluate sentence building block objects
+    for sentence in reply:
+        for i, word in enumerate(sentence.contents):
+            # Have/has
