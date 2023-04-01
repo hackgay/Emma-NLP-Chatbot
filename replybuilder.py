@@ -447,3 +447,32 @@ def reply(message, moodValue, allowInterrogative=True):
     for sentence in reply:
         for i, word in enumerate(sentence.contents):
             # Have/has
+            if isinstance(word, SBBHaveHas):
+                if sentence.isPlural:
+                    sentence.contents[i] = u'have'
+                else:
+                    sentence.contents[i] = u'has'
+            # Is/Are
+            elif isinstance(word, SBBIsAre):
+                logging.debug("Evaluating SBBIsAre object...")
+                if sentence.isPlural:
+                    sentence.contents[i] = u'are'
+                else:
+                    sentence.contents[i] = u'is'
+            # Articles (a, the, etc.)
+            elif isinstance(word, SBBArticle):
+                logging.debug("Evaluating SBBArticle object...")
+                validArticles = [u'the']
+                if sentence.isPlural == False:
+                    if sentence.contents[i+1][0] in misc.vowels:
+                        validArticles.append(u'an')
+                    else:
+                        validArticles.append(u'a')
+                else:
+                    validArticles.extend([u'some', u'many'])
+                sentence.contents[i] = random.choice(validArticles)
+            # Conjunctions (but, and, etc.)
+            elif isinstance(word, SBBConjunction):
+                logging.debug("Evaluating SBBConjunction object...")
+                sentence.contents[i] = random.choice([u'and', u'but', u'while'])
+            # Punctuation choice is a coin flip gated by mood
