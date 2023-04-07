@@ -500,3 +500,29 @@ def reply(message, moodValue, allowInterrogative=True):
             if word in [u'sharkthemepark', u'deersyrup']:
                 if random.choice([True, False]):
                     sentence.contents[i] = u'mom'
+            elif word == u'nosiron':
+                if random.choice([True, False]):
+                    sentence.contents[i] = u'dad'
+            elif word == u"n't":
+                sentence.contents[i] = u'not'
+
+            # Capitalize 'Emma'
+            elif word == u'emma':
+                sentence.contents[i] = u'Emma'
+
+            else:
+                sentence.contents[i] = word
+        
+        # Turn the reply into a string
+        print sentence.contents
+        sentence.contents[-2] += sentence.contents[-1]
+        sentence.contents.remove(sentence.contents[-1])
+        finishedSentences.append(' '.join(sentence.contents))
+
+    finishedReply = ' '.join(finishedSentences)
+
+    # Fix the shitty broken unicode \xa0 thing
+    finishedReply = finishedReply.replace(u'\xa0', u' ')
+    finishedReply = finishedReply.replace(u'\\', u'')
+
+    return finishedReply
