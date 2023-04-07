@@ -476,3 +476,27 @@ def reply(message, moodValue, allowInterrogative=True):
                 logging.debug("Evaluating SBBConjunction object...")
                 sentence.contents[i] = random.choice([u'and', u'but', u'while'])
             # Punctuation choice is a coin flip gated by mood
+            # TODO: Maybe have mood actually influence the coin flip instead of just gating it?
+            elif isinstance(word, SBBPunctuation):
+                logging.debug("Evaluating SBBPunctuation object...")
+                canExclaim = False
+                if moodValue > -0.2:
+                    canExclaim = True
+                if random.choice([False, canExclaim]):
+                    sentence.contents[i] = u'!'
+                else:
+                    sentence.contents[i] = u'.'
+            else:
+                sentence.contents[i] = word
+
+    # One final run to finalize the message
+    finishedSentences = []
+    for sentence in reply:
+        # Capitalize the first letter of the sentence
+        sentence.contents[0] = string.capwords(sentence.contents[0])
+
+        for i, word in enumerate(sentence.contents):
+            # Refer to Ellie as mom and Alex as dad
+            if word in [u'sharkthemepark', u'deersyrup']:
+                if random.choice([True, False]):
+                    sentence.contents[i] = u'mom'
