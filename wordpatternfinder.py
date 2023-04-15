@@ -1,3 +1,5 @@
 import logging
 
-import m
+import misc
+
+class InterrogativePac
