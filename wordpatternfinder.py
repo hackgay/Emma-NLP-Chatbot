@@ -4,4 +4,7 @@ import misc
 
 class InterrogativePackage:
     """
-    Packages the important bits of questi
+    Packages the important bits of question nicely
+
+    Class variables:
+  
