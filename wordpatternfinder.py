@@ -7,4 +7,4 @@ class InterrogativePackage:
     Packages the important bits of question nicely
 
     Class variables:
-    questionType    str     Type of ques
+    questionType    str     Type of question ('what is', 'do X have
