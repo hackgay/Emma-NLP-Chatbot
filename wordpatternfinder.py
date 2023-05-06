@@ -8,4 +8,4 @@ class InterrogativePackage:
 
     Class variables:
     questionType    str     Type of question ('what is', 'do X have Y', etc.)
-    attribute       Word    H
+    attribute       Word    Half of the important question bit
