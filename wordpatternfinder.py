@@ -13,4 +13,5 @@ class InterrogativePackage:
     """
 
     def __init__(self, questionType, attribute, subject):
-        self.questionType = ques
+        self.questionType = questionType
+        self.attribute = at
