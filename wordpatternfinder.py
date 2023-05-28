@@ -17,4 +17,5 @@ class InterrogativePackage:
         self.attribute = attribute
         self.subject = subject
 
-def package_int
+def package_interrogatives(sentence):
+    
