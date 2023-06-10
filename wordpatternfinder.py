@@ -23,4 +23,5 @@ def package_interrogatives(sentence):
     if sentence.words[0].lemma == u'what':
         if sentence.words[1].lemma == u'be':
             # Find the attribute and object
-            at
+            attribute = None
+       
