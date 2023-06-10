@@ -22,4 +22,5 @@ def package_interrogatives(sentence):
     # "What is...?"
     if sentence.words[0].lemma == u'what':
         if sentence.words[1].lemma == u'be':
-            # Find the attribute and o
+            # Find the attribute and object
+            at
