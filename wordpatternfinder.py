@@ -25,4 +25,5 @@ def package_interrogatives(sentence):
             # Find the attribute and object
             attribute = None
             subject = None
-            for word in sentenc
+            for word in sentence.words[2:]:
+            
