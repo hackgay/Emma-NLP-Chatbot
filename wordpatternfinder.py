@@ -26,4 +26,4 @@ def package_interrogatives(sentence):
             attribute = None
             subject = None
             for word in sentence.words[2:]:
-                if word.partOfSpeech i
+                if word.partOfSpeech in misc.nounCodes + misc.a
