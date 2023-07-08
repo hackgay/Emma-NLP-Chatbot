@@ -29,4 +29,5 @@ def package_interrogatives(sentence):
                 if word.partOfSpeech in misc.nounCodes + misc.adjectiveCodes:
                     attribute = word
                     break
-            for word in sentence.words
+            for word in sentence.words[2:]:
+                if word.
