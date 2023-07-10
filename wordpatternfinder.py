@@ -32,4 +32,6 @@ def package_interrogatives(sentence):
             for word in sentence.words[2:]:
                 if word.partOfSpeech in misc.nounCodes:
                     if word == attribute:
-                       
+                        pass
+                    else:
+ 
