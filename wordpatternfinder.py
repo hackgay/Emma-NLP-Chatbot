@@ -34,4 +34,4 @@ def package_interrogatives(sentence):
                     if word == attribute:
                         pass
                     else:
- 
+                        subject =
