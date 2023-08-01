@@ -37,4 +37,4 @@ def package_interrogatives(sentence):
                         subject = word
                         break
             if attribute != None and subject != None:
-                sentence.interrogativePackage = InterrogativePackage('WHAT
+                sentence.interrogativePackage = InterrogativePackage('WHAT-IS', attribute, subject)
