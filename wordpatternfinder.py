@@ -38,4 +38,4 @@ def package_interrogatives(sentence):
                         break
             if attribute != None and subject != None:
                 sentence.interrogativePackage = InterrogativePackage('WHAT-IS', attribute, subject)
-                logging.info("'WHAT-IS interrogative 
+                logging.info("'WHAT-IS interrogative with attribute '{0}' and 
