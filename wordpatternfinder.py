@@ -42,4 +42,4 @@ def package_interrogatives(sentence):
                 return sentence
 
 def find_patterns(sentence):
-    """F
+    """Finds Sentence objects'
