@@ -41,4 +41,5 @@ def package_interrogatives(sentence):
                 logging.info("'WHAT-IS interrogative with attribute '{0}' and subject '{1}'".format(attribute, subject))
                 return sentence
 
-def find_p
+def find_patterns(sentence):
+    """F
