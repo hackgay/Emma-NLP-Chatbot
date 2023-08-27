@@ -42,4 +42,5 @@ def package_interrogatives(sentence):
                 return sentence
 
 def find_patterns(sentence):
-    """Finds Sentence objects' domains and Interrogati
+    """Finds Sentence objects' domains and InterrogativePackages, if applicable"""
+    # If the se
