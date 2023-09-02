@@ -43,4 +43,4 @@ def package_interrogatives(sentence):
 
 def find_patterns(sentence):
     """Finds Sentence objects' domains and InterrogativePackages, if applicable"""
-    # If the se
+    # If the sentence ends in a question mark, it's p
