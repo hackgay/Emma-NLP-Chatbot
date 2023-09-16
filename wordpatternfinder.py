@@ -46,4 +46,5 @@ def find_patterns(sentence):
     # If the sentence ends in a question mark, it's proabably interrogative
     if sentence.words[-1].word == u'?':
         sentence.domain = 'INTERROGATIVE'
-    # If the sentence starts with a wh-part of speech, it's also
+    # If the sentence starts with a wh-part of speech, it's also probably interrogative
+    if sentenc
