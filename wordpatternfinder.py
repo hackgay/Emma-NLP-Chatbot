@@ -47,4 +47,5 @@ def find_patterns(sentence):
     if sentence.words[-1].word == u'?':
         sentence.domain = 'INTERROGATIVE'
     # If the sentence starts with a wh-part of speech, it's also probably interrogative
-    if sentence.words[0].partOfSpeech in
+    if sentence.words[0].partOfSpeech in misc.whWordCodes:
+        
