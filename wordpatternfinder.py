@@ -50,4 +50,4 @@ def find_patterns(sentence):
     if sentence.words[0].partOfSpeech in misc.whWordCodes:
         sentence.domain = 'INTERROGATIVE'
 
-    # If the sentence begins with "(noun) is.
+    # If the sentence begins with "(noun) is...", we're probably being told this 
