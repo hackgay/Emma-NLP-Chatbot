@@ -53,4 +53,6 @@ def find_patterns(sentence):
     # If the sentence begins with "(noun) is...", we're probably being told this and shouldn't ask about it
     if sentence.words[0].partOfSpeech in misc.nounCodes:
         if sentence.words[1].lemma == u'be':
-            sentence.domain = 'DECLARATI
+            sentence.domain = 'DECLARATIVE'
+
+    logging.debug("S
