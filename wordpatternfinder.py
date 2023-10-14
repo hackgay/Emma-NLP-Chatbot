@@ -52,4 +52,5 @@ def find_patterns(sentence):
 
     # If the sentence begins with "(noun) is...", we're probably being told this and shouldn't ask about it
     if sentence.words[0].partOfSpeech in misc.nounCodes:
-        if sentence
+        if sentence.words[1].lemma == u'be':
+       
