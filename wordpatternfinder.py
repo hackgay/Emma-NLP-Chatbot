@@ -57,4 +57,5 @@ def find_patterns(sentence):
 
     logging.debug("Sentence domain: {0}".format(sentence.domain))
 
-    # If the domain is interrogative, package the ques
+    # If the domain is interrogative, package the question to answer later
+ 
