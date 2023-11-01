@@ -59,4 +59,6 @@ def find_patterns(sentence):
 
     # If the domain is interrogative, package the question to answer later
     if sentence.domain == 'INTERROGATIVE':
-        sentence = package_interrogatives(sent
+        sentence = package_interrogatives(sentence)
+
+    return sentence
